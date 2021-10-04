@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.template');
+        $jumlahUser = User::where('role', 'User')->count();
+        return view('user.konten.index',[
+        'jumlahUser' => $jumlahUser
+        ]);
+
     }
 
     /**
@@ -46,7 +51,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('user.konten.show');
     }
 
     /**
