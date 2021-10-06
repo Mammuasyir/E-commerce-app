@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $jumlahUser = User::where('role', 'User')->count();
         return view('user.konten.index',[
-        'jumlahUser' => $jumlahUser
+        'jumlahUser' => $jumlahUser,
         ]);
 
     }
@@ -49,9 +49,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($username)
     {
-        return view('user.konten.show');
+        $user = User::where('username', $username)->first();
+        return view('user.konten.show', [
+        'user' => $user
+    ]);
     }
 
     /**
@@ -60,9 +63,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($username)
     {
-        //
+        $title = "Edit Profile";
+        $user = User::where('username', $username)->first();
+        return view('user.konten.edit', [
+        'user' => $user,
+        'title' => $title,
+    ]);
     }
 
     /**
@@ -72,9 +80,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $username)
     {
-        //
+        // return dd($request);
+        $user = User::where('username', $username)->first();
+        $user->update($request->all());
+        return view('user.konten.show', [
+            'user' => $user,
+            
+        ]);
     }
 
     /**

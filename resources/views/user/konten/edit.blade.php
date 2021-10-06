@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="content">
+div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">My Profile</h4>
+						<h4 class="page-title">{{$title}}</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="#">
@@ -16,7 +16,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="#">My Profile</a>
+								<a href="#">{{$title}} </a>
 							</li>
 						</ul>
 					</div>
@@ -24,9 +24,13 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<div class="card-title">Profile Memski</div>
+									<div class="card-title">{{$title}} {{$user->name}}</div>
 								</div>
 								<div class="card-body">									
+
+                                    <form action="{{route('profile.update', Auth::user()->username)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
 
 									<div class="row">
 										<div class="col-md-1"></div>
@@ -40,7 +44,7 @@
 														<label>Nama :</label>
 													</div>
 													<div class="col-lg-4 col-md-9 col-sm-8">												
-														<input type="text" value="{{$user->name}}" class="form-control input-fixed" id="exampleInputPassword1">
+														<input type="text" name="name" value="{{$user->name}}" class="form-control input-fixed" id="exampleInputPassword1">
 													</div>
 												</div>
 		
@@ -49,7 +53,7 @@
 														<label>Username :</label>
 													</div>
 													<div class="col-lg-4 col-md-9 col-sm-8">												
-														<input type="text" value="{{$user->username}}" class="form-control input-fixed" id="exampleInputPassword1">
+														<input type="text" name="username" value="{{$user->username}}" class="form-control input-fixed" id="exampleInputPassword1">
 													</div>
 												</div>
 		
@@ -58,7 +62,7 @@
 														<label>Email :</label>
 													</div>
 													<div class="col-lg-4 col-md-9 col-sm-8">												
-														<input type="text" value="{{$user->email}}" class="form-control input-fixed" id="exampleInputPassword1">
+														<input type="text" name="email" value="{{$user->email}}" class="form-control input-fixed" id="exampleInputPassword1">
 													</div>
 												</div>
 		
@@ -67,7 +71,7 @@
 														<label>No.telp :</label>
 													</div>
 													<div class="col-lg-4 col-md-9 col-sm-8">												
-														<input type="text" readonly value="{{$user->number_phone}}" class="form-control input-fixed" id="exampleInputPassword1">
+														<input type="text" name="number_phone" value="{{$user->number_phone}}" class="form-control input-fixed" id="exampleInputPassword1">
 													</div>
 												</div>
 
@@ -77,7 +81,7 @@
 													</div>
 													<div class="col-lg-4 col-md-9 col-sm-8">												
 														<!-- <input type="text" readonly value="{{$user->address}}" class="form-control input-fixed" id="exampleInputPassword1"> -->
-														<textarea class="form-control input-fixed" cols="20" rows="10">{{$user->address}}</textarea>
+														<textarea class="form-control input-fixed" name="address" cols="20" rows="10">{{$user->address}}</textarea>
 													</div>
 												</div>
 
@@ -130,12 +134,13 @@
 											</div>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<a href="{{route('profile.edit', Auth::user()->username)}}">
-												<button id="displayNotif" type="button" class="btn btn-success">Edit Profile</button>
+												<button id="displayNotif" type="submit" class="btn btn-success">save Profile</button>
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
+                                </form>
 							</div>
 						</div>
 					</div>

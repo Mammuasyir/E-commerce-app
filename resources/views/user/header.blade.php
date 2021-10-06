@@ -2,8 +2,8 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 				
-				<a href="index.html" class="logo">
-					<img src="assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+				<a href="{{route('profile.show', Auth::user()->username)}}" class="logo">
+					<img src="{{asset('atlantis/assets/img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -44,14 +44,23 @@
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded-circle">
+								@if (Auth::user()->name =='')
+							<img src="https://ui-avatars.com/api/?name={{Auth::user()->username}}" alt="..." class="avatar-img rounded-circle">
+							@elseif (Auth::user()->name != '')
+							<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded-circle">
+							@endif
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg">
+											@if (Auth::user()->name =='')
+							<img src="https://ui-avatars.com/api/?name={{Auth::user()->username}}" alt="..." class="avatar-img rounded-circle">
+							@elseif (Auth::user()->name != '')
+							<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded-circle">
+							@endif</div>
 											<div class="u-text">
 												<h4>{{Auth::user()->name}}</h4>
 												<p class="text-muted">{{Auth::user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
@@ -61,11 +70,19 @@
 									<li>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="myprofile.html">My Profile</a>
-										<a class="dropdown-item" href="#">Edit Profile</a>
+										<a class="dropdown-item" href="{{route('profile.edit', Auth::user()->username)}}">Edit Profile</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#">Pengaturan Akun</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Keluar</a>
+										<a class="dropdown-item" href="{{route('logout')}}"
+										onclick="event.preventDefault();
+										document.getElementById('logout-form').submit();">
+										{{ __('Keluar') }}
+									</a>
+									<form id="logout-form" action="{{route('logout') }}" method="POST" class="d-none">
+										@csrf
+									</form>
+
 									</li>
 								</div>
 							</ul>
