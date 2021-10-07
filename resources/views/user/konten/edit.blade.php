@@ -2,7 +2,7 @@
 
 @section('content')
 
-div class="content">
+<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
 						<h4 class="page-title">{{$title}}</h4>
@@ -28,7 +28,7 @@ div class="content">
 								</div>
 								<div class="card-body">									
 
-                                    <form action="{{route('profile.update', Auth::user()->username)}}" method="post">
+                                    <form action="{{route('profile.update', Auth::user()->username)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
 
@@ -97,9 +97,17 @@ div class="content">
 							<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded">
 							@endif</div>
 												</div>
-												
+
+												<div class="form-group form-show-notify row">
+													<div class="col-lg-3 col-md-3 col-sm-4 text-right">
+													
+													</div>
+													<div class="col-lg-4 col-md-9 col-sm-8">
+													<input type="file" name="image">
 											</div> 	
-																				
+										</div>
+
+											</div>
 										</div>
 
 										<div class="col-md-4">

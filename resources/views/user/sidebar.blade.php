@@ -33,6 +33,11 @@
 										</a>
 									</li>
 									<li>
+										<a href="{{route('ganti')}}">
+											<span class="link-collapse">Ganti Password</span>
+										</a>
+									</li>
+									<li>
 										<a href="#settings">
 											<span class="link-collapse">Settings</span>
 										</a>
@@ -58,7 +63,7 @@
 							<div class="collapse" id="user">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="#">
+										<a href="{{route('table', Auth::user()->username)}}">
 											<span class="sub-item">List User</span>
 										</a>
 									</li>
