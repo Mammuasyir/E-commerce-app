@@ -140,10 +140,12 @@ class UserController extends Controller
     public function table()
     {
         $title = "Table User";
-        // $data = DB::table('users')->get();
+        $i = 1;
+        $user = User::all();
         return view('user.konten.table',[
+            'user' => $user,
             'title' => $title,
-            // 'users' => $data,
+            'i' => $i
         ]);
     }
 

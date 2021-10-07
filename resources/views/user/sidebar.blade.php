@@ -63,7 +63,7 @@
 							<div class="collapse" id="user">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="{{route('table', Auth::user()->username)}}">
+										<a href="{{route('table')}}">
 											<span class="sub-item">List User</span>
 										</a>
 									</li>
