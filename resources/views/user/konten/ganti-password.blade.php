@@ -37,6 +37,19 @@
 
 										<div class="col-md-6">
 
+										@if(Session::get('Success'))
+										<div class="alert alert-success alert-dismissable fade show" role="alert">
+											{{Session::get('Success')}}
+										</div>
+										@endif
+
+										@if(Session::get('Failed'))
+										<div class="alert alert-danger alert-dismissable fade show" role="alert">
+											{{Session::get('Failed')}}
+										</div>
+										@endif
+
+
 											<div class="form">
 										
 												<div class="form-group form-show-notify row">

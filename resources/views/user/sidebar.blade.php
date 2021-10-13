@@ -54,6 +54,8 @@
 							</span>
 							<h4 class="text-section">Pengaturan Akun</h4>
 						</li> -->
+
+						@if(Auth::user()->role == 'Admin')
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#user">
 								<i class="fas fa-users"></i>
@@ -80,7 +82,7 @@
 							<div class="collapse" id="produk">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="#">
+										<a href="{{route('product.index')}}">
 											<span class="sub-item">List Produk</span>
 										</a>
 									</li>
@@ -105,6 +107,28 @@
 							</div>
 						</li>
 				
+
+
+						@else
+
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#pesanan">
+								<i class="fas fa-wallet"></i>
+								<p>Transaksi</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="pesanan">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="#">
+											<span class="sub-item">Pesanan</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+				
+						@endif
 					</ul>
 				</div>
 			</div>
