@@ -59,6 +59,26 @@
 
 										<div class="form-group form-show-notify row">
 											<div class="col-lg-3 col-md-3 col-sm-4 text-right">
+												<label>Kategori :</label>
+											</div>
+											<div class="col-lg-4 col-md-9 col-sm-8">
+												<!-- <input type="text" name="quantity" class="form-control input-fixed" id="exampleInputPassword1"> -->
+											<select class="@error('kategori_id') is-invalid @enderror form-control input-fixed" name="kategori_id">
+												<option value="">Plih Kategori</option>
+												@foreach($kategory as $kat)
+												<option value="{{$kat->id}}">{{$kat->nama_kategori}}</option>
+												@endforeach
+											</select>
+											@error('kategori_id')
+											<div class="invalid-feedback" style="width: 300px !important;" role="alert">
+										<strong>{{$message}}</strong>
+									</div>
+									@enderror
+											</div>
+										</div>
+
+										<div class="form-group form-show-notify row">
+											<div class="col-lg-3 col-md-3 col-sm-4 text-right">
 												<label>Status:</label>
 											</div>
 											<div class="col-lg-4 col-md-9 col-sm-8">

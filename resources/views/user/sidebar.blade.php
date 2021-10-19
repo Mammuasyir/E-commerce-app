@@ -86,6 +86,11 @@
 											<span class="sub-item">List Produk</span>
 										</a>
 									</li>
+									<li>
+										<a href="{{route('kategori.index')}}">
+											<span class="sub-item">List Kategori</span>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</li>

@@ -18,8 +18,15 @@ class product extends Model
         'status',
         'quantity',
         'weight',
+        'kategori_id',
         'image',
+        'slug',
     ];
+
+    public function kategory()
+    {
+    return $this->belongsTo(kategory::class);
+    }
 
     protected $hidden = [];
 

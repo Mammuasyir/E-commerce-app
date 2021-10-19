@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\kategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+
 
 class ProductController extends Controller
 {
@@ -18,17 +22,16 @@ class ProductController extends Controller
     {
         if(auth()->user()->role !== 'Admin'){
             // abort(404);
-            echo"TERLARANG";
-            return;
+            // echo"TERLARANG";
+            // return;
         }
         $title = "List Product";
         $i = 1;
-        $product = product::all();
-        return view('product.product', [
-            'product' => $product,  
-            'title' => $title,
-            'i' => $i,
-        ]);
+        
+        $products = Product::orderBy('id', 'desc')->paginate(5);
+            return view('product.index', compact('title', 'products', 'i')
+        );
+        
     }
 
     /**
@@ -44,12 +47,16 @@ class ProductController extends Controller
             return;
         }
         $title = "Create Product";
+        $kategory = kategory::all();
         $i = 1;
         $product = product::all();
         return view('product.create', [
             'product' => $product,  
             'title' => $title,
+            'kategory' => $kategory,
             'i' => $i,
+
+            
         ]);
     }
 
@@ -65,12 +72,13 @@ class ProductController extends Controller
         
             Product::create([
                 'name_product' => $request->name_product,
+                'kategori_id' => $request->kategori_id,
                 'Price' => $request->Price,
                 'status' => $request->status,
                 'quantity' => $request->quantity,
                 'weight' => $request->weight,
                 'image' => $request->file('image')->store('image-product'),
-                
+                'slug' =>Str::slug($request->name_product,'-'),
             ]);
 
             return redirect()->route('product.index')->with('success', 'Data berhasil ditambahkan.');
@@ -124,6 +132,7 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'weight' => $request->weight,
             // 'image' => $request->file('image')->store('image-product'),
+            'slug' =>Str::slug($request->name_product,'-'),
         ]);
         return redirect()->route('product.index')->with('success', 'Data berhasil diapa2in.');
     } else {
@@ -155,7 +164,21 @@ class ProductController extends Controller
         Product::findOrFail($id)->delete();
         return redirect()->route('product.index')->with('success', 'Data berhasil dimusnahkan.');
     }
+    
+    public function search(Request $request)
+    {
+        $title = 'List Produk';
+        $keyword = $request->search;
+        $products = Product::where('name_product', 'like', "%" . $keyword . "%") 
+        ->orWhere('status', 'like', "%" . $keyword . "%")
+        ->orWhere('Price', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('product.index', compact('products','title'));
+    }
+
+    
 }
 // Tugas 1 ketika hapus data gambarnya juga harus kehapus !
 // tampilkan landing page di halaman laravel
 // buat halaman edit
+
+
