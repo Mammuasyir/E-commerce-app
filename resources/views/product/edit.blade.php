@@ -58,19 +58,45 @@
                                         </div>
 
                                         <div class="form-group form-show-notify row">
+											<div class="col-lg-3 col-md-3 col-sm-4 text-right">
+												<label>Kategori :</label>
+											</div>
+											<div class="col-lg-4 col-md-9 col-sm-8">
+												<!-- <input type="text" name="quantity" class="form-control input-fixed" id="exampleInputPassword1"> -->
+											<select class="@error('kategori_id') is-invalid @enderror form-control input-fixed" name="kategori_id">
+												<option value="">--Pilih Kategori--</option>
+												@foreach($kategory as $kat)
+												<option value="{{$kat->id}}" @if ($kat->id == $product->kategori_id) selected="selected" @endif>{{$kat->nama_kategori}}</option>
+												@endforeach
+											</select>
+											@error('kategori_id')
+											<div class="invalid-feedback" style="width: 300px !important;" role="alert">
+										<strong>{{$message}}</strong>
+									</div>
+									@enderror
+											</div>
+										</div>
+
+                                        <div class="form-group form-show-notify row">
                                             <div class="col-lg-3 col-md-3 col-sm-4 text-right">
                                                 <label>Status:</label>
                                             </div>
                                             <div class="col-lg-4 col-md-9 col-sm-8">
                                                 <!-- <input type="text" name="quantity" value="{{$product->quantity}}" class="form-control input-fixed" id="exampleInputPassword1"> -->
                                                 <select class="@error('status') is-invalid @enderror form-control input-fixed" name="status">
-												<option value="">Plih Status</option>
+												@if(($product->status == '1'))
+                                                <option value="">Plih Status</option>
 
 												<!-- <option value="Tersedia"@if (old('status') == "Tersedia") selected="selected" @endif>Tersedia</option>
 												<option value="Kosong" (old('status') == "Kosong" ? 'selected' : '' }}>Kosong</option> -->
 
-                                                <option value="1">Tersedia</option>
+                                                <option value="1" selected>Tersedia</option>
 												<option value="0" >Kosong</option>
+                                                @else
+                                                <option value="">Plih Status</option>
+                                                <option value="1">Tersedia</option>
+												<option value="0" selected>Kosong</option>
+                                                @endif
 											</select>
                                             </div>
                                         </div>

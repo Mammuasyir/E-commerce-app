@@ -106,9 +106,11 @@ class ProductController extends Controller
     {
 
         $title = "Edit Product";
+        $kategory = kategory::all();
         $product = Product::findOrFail($id);
         return view('product.edit', [
             'product' => $product,
+            'kategory' => $kategory,
             'title' => $title
         ]);
     }
@@ -127,6 +129,7 @@ class ProductController extends Controller
         $product = Product::findOrfail($id);
         $product->update([
             'name_product' => $request->name_product,
+            'kategori_id' => $request->kategori_id,
             'Price' => $request->Price,
             'status' => $request->status,
             'quantity' => $request->quantity,
@@ -140,6 +143,7 @@ class ProductController extends Controller
             Storage::delete($product->image);
             $product->update([
                 'name_product' => $request->name_product,
+                'kategori_id' => $request->kategori_id,
                 'Price' => $request->Price,
                 'status' => $request->status,
                 'quantity' => $request->quantity,

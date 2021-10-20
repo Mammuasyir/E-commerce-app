@@ -23,7 +23,7 @@ class product extends Model
         'slug',
     ];
 
-    public function kategory()
+    public function kategori()
     {
     return $this->belongsTo(kategory::class);
     }

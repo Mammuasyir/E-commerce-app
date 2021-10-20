@@ -64,7 +64,7 @@
 											<div class="col-lg-4 col-md-9 col-sm-8">
 												<!-- <input type="text" name="quantity" class="form-control input-fixed" id="exampleInputPassword1"> -->
 											<select class="@error('kategori_id') is-invalid @enderror form-control input-fixed" name="kategori_id">
-												<option value="">Plih Kategori</option>
+												<option value="">--Pilih Kategori--</option>
 												@foreach($kategory as $kat)
 												<option value="{{$kat->id}}">{{$kat->nama_kategori}}</option>
 												@endforeach
@@ -84,7 +84,7 @@
 											<div class="col-lg-4 col-md-9 col-sm-8">
 												<!-- <input type="text" name="quantity" class="form-control input-fixed" id="exampleInputPassword1"> -->
 											<select class="@error('status') is-invalid @enderror form-control input-fixed" name="status">
-												<option value="">Plih Status</option>
+												<option value="">--Plih Status--</option>
 												<option value="1">Tersedia</option>
 												<option value="0" >Kosong</option>
 											</select>

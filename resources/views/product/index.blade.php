@@ -55,6 +55,7 @@
 								<tr>
 									<th>No</th>
 									<th>name_product</th>
+									<th>Kategori</th>
 									<th>Price</th>
 									<th>status</th>
 									<th>quantity</th>
@@ -71,6 +72,7 @@
 								<tr role="product" class="odd">
 									<td>{{$product->id}}</td>
 									<td class="">{{$product->name_product}}</td>
+									<td class="">{{$product->kategori->nama_kategori}}</td>
 									<td class="sorting_1">Rp. {{ number_format($product->Price)}}</td>
 									<td>
 										@if($product->status == 1)

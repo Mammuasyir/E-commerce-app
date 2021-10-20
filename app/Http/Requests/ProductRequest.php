@@ -32,4 +32,13 @@ class ProductRequest extends FormRequest
             'image' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'image.required' => 'Gaul dikosongin !',
+            'status.required' => 'Jangan dikosongin !',
+            'Price.required' => 'dikosongin euy !',
+        ];
+    }
 }
