@@ -28,6 +28,11 @@ class product extends Model
     return $this->belongsTo(kategory::class);
     }
 
+    public function details()
+    {
+        return $this->hasMany(Detailpesanan::class, 'id', 'product_id');
+    }
+
     protected $hidden = [];
 
 }

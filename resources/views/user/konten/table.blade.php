@@ -39,6 +39,7 @@
 												<th scope="col">NAME</th>
 												<th scope="col">USERNAME</th>
 												<th scope="col">EMAIL</th>
+												<th scope="col">Number Phone</th>
 												<th scope="col">ADDRESS</th>
 												<th scope="col">SINCE</th>
 												
@@ -55,6 +56,7 @@
 												<td>{{$user->name}}</td>
 												<td>{{$user->username}}</td>
 												<td>{{$user->email}}</td>
+												<td>{{$user->number_phone}}</td>
 												<td>{{$user->address}}</td>
 												<td>{{$user->created_at}}</td>
 												

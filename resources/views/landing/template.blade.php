@@ -9,6 +9,10 @@
     <meta name="generator" content="Hugo 0.87.0">
     <title>{{$title ?? 'Home page'}}</title>
 
+    <link rel="stylesheet" href="{{asset('atlantis/assets/css/cssaja.css')}}" media="screen" title="no title">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
@@ -23,6 +27,17 @@
 
 </head>
 
+<style>
+
+    .anchor{
+        color: red;
+    }
+    .anchor:hover{
+        color: white;
+        font-weight: 600px;
+    }
+</style>
+
 <body>
 
 @include('landing.include.navbar')
@@ -35,7 +50,7 @@
 
 @include('landing.include.footer')
 
-<script src="{{asset('landing/js/bootstrap/.bundle.min.js')}}"></script>
+<script src="{{asset('landing/js/bootstrap.bundle.min.js')}}"></script>
 
 
 

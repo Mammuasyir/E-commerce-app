@@ -97,6 +97,7 @@
                                                 <option value="1">Tersedia</option>
 												<option value="0" selected>Kosong</option>
                                                 @endif
+                                                
 											</select>
                                             </div>
                                         </div>

@@ -104,8 +104,18 @@
 							<div class="collapse" id="pesanan">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="#">
-											<span class="sub-item">Pesanan</span>
+										<a href="{{route('transaksi.pending')}}">
+											<span class="sub-item">Pending</span>
+										</a>
+									</li>
+									<li>
+										<a href="{{route('transaksi.lunas')}}">
+											<span class="sub-item">Lunas</span>
+										</a>
+									</li>
+									<li>
+										<a href="{{route('transaksi.terkirim')}}">
+											<span class="sub-item">Terkirim</span>
 										</a>
 									</li>
 								</ul>

@@ -171,7 +171,7 @@ class ProductController extends Controller
     
     public function search(Request $request)
     {
-        $title = 'List Produk';
+        $title = "List Produk";
         $keyword = $request->search;
         $products = Product::where('name_product', 'like', "%" . $keyword . "%") 
         ->orWhere('status', 'like', "%" . $keyword . "%")

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('landing.template')
 
-@section('content')
+@section('isi')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

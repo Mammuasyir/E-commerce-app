@@ -44,11 +44,7 @@
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-								@if (Auth::user()->name =='')
-							<img src="https://ui-avatars.com/api/?name={{Auth::user()->username}}" alt="..." class="avatar-img rounded-circle">
-							@elseif (Auth::user()->name != '')
-							<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded-circle">
-							@endif
+								
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -56,11 +52,8 @@
 									<li>
 										<div class="user-box">
 											<div class="avatar-lg">
-											@if (Auth::user()->name =='')
-							<img src="https://ui-avatars.com/api/?name={{Auth::user()->username}}" alt="..." class="avatar-img rounded-circle">
-							@elseif (Auth::user()->name != '')
-							<img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="..." class="avatar-img rounded-circle">
-							@endif</div>
+											
+						</div>
 											<div class="u-text">
 												<h4>{{Auth::user()->name}}</h4>
 												<p class="text-muted">{{Auth::user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
@@ -69,10 +62,10 @@
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="myprofile.html">My Profile</a>
+										<a class="dropdown-item" href="{{route('profile.show', Auth::user()->username)}}">My Profile</a>
 										<a class="dropdown-item" href="{{route('profile.edit', Auth::user()->username)}}">Edit Profile</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Pengaturan Akun</a>
+										<a class="dropdown-item" href="#">Change Password</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="{{route('logout')}}"
 										onclick="event.preventDefault();

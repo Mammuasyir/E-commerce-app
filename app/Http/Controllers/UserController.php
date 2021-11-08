@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+    
     public function index()
     {
+        $user = User::all();
         $jumlahUser = User::where('role', 'User')->count();
         return view('user.konten.index',[
         'jumlahUser' => $jumlahUser,
+        'user' => $user,
         ]);
 
     }
