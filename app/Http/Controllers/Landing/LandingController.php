@@ -59,7 +59,7 @@ class LandingController extends Controller
         $kategory = kategory::all();
         return view('landing.yield.allproduct', [
             'products' => $products,
-            'kategory' => $kategory,
+            'kategory' => $kategory, 
             'title' => $title,
         ]);
     }
@@ -193,5 +193,14 @@ class LandingController extends Controller
 
         return view('landing.yield.history', compact('title', 'pesanan', 'i'));
 
+    }
+
+    public function searchHistory(Request $request)
+    {
+        $i = 1;
+        $title = "Search History";
+        $keyword = $request->search;
+        $pesanan = Pesanan::where('kode_pemesanan', 'like', "%" . $keyword . "%")->get();
+        return view('landing.yield.history', compact('pesanan','title', 'keyword', 'i'));
     }
 }

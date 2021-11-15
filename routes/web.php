@@ -35,6 +35,7 @@ Route::delete('/delcart/{id}', [\App\Http\Controllers\Landing\LandingController:
 Route::get('/checkout', [\App\Http\Controllers\Landing\LandingController::class, 'checkout'])->name('landing.checkout');
 Route::put('/edit-checkout', [\App\Http\Controllers\Landing\LandingController::class, 'editcheckout'])->name('landing.edit');
 Route::get('/history', [\App\Http\Controllers\Landing\LandingController::class, 'history'])->name('landing.history');
+Route::get('/search-history', [\App\Http\Controllers\Landing\LandingController::class, 'searchHistory'])->name('search.history');
 
 
 Auth::routes(['verify' => true]);
@@ -53,10 +54,10 @@ Route::post('/tambah-kategori', [App\Http\Controllers\KategoriController::class,
 Route::put('/edit-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'editKategori'])->name('kategory.edit')->middleware('auth');
 Route::delete('/del-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'delKategori'])->name('kategory.destroy')->middleware('auth');
 
-// Transaksi route
+// Transaksi route 
 Route::get('/Transaksi-pending', [App\Http\Controllers\TransaksiController::class, 'pending'])->name('transaksi.pending')->middleware('auth');
 Route::put('/edit-pending', [App\Http\Controllers\TransaksiController::class, 'editPending'])->name('pending.edit')->middleware('auth');
 Route::get('/Transaksi-lunas', [App\Http\Controllers\TransaksiController::class, 'lunas'])->name('transaksi.lunas')->middleware('auth');
 Route::get('/Transaksi-terkirim', [App\Http\Controllers\TransaksiController::class, 'terkirim'])->name('transaksi.terkirim')->middleware('auth');
-
+Route::get('/Transaksi-search', [App\Http\Controllers\TransaksiController::class, 'searchPesanan'])->name('transaksi.search')->middleware('auth');
 

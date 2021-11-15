@@ -28,7 +28,7 @@
 				</div>
 				<div class="card-body" style="margin-top: 15px;">
 
-					<form class="form" method="get" action="{{ route('search') }}">
+					<form class="form" method="get" action="{{ route('transaksi.search') }}">
 						<div class="form-group w-100 mb-3">
 							<label for="search" class="d-block mr-2">Pencarian</label>
 							<input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan keyword">

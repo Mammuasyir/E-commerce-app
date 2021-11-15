@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
-    public function pending()
+    public function pending() 
     {
         $title = "Pending";
         $i = 1;
@@ -28,9 +28,13 @@ class TransaksiController extends Controller
         return redirect()->back();
     }
 
-    public function cariPesanan(Request $request)
+    public function searchPesanan(Request $request)
     {
-
+        $i = 1;
+        $title = "Search Pesanan";
+        $keyword = $request->search;
+        $pesanan = Pesanan::where('kode_pemesanan', 'like', "%" . $keyword . "%")->get();
+        return view('transaksi.pending', compact('pesanan','title', 'keyword', 'i'));
     }
 
     public function lunas()

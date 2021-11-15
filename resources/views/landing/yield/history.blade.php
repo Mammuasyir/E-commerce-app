@@ -19,6 +19,16 @@
         </div>
     </div>
 
+    <div class="container" style="margin-top: 30px;">
+    <form class="form" method="get" action="{{ route('search.history') }}">
+						<div class="form-group w-80 mb-3">
+							<label for="search" class="d-block mr-2"></label>
+							<input type="text" name="search" class="form-control w-50 d-inline" id="search" placeholder="Masukkan keyword">
+							<button type="submit" class="btn btn-primary mb-1">Cari</button>
+						</div>
+					</form>
+    </div>
+
     <div class="row mt-4">
         <div class="col-md-12">
             <div class="card">
