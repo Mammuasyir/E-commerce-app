@@ -99,7 +99,6 @@ class UserController extends Controller
                 'username' => $request->username,
                 'number_phone' => $request->number_phone,
                 'address' => $request->address,
-                
             ]);
 
             return view('user.konten.show', [
@@ -124,6 +123,8 @@ class UserController extends Controller
             'user' => $user,
             'title' => $title,
         ]);
+
+        return redirect()->route('user.konten')->with(['success' => 'data berhasil terupdate']);
 
         }
     }

@@ -89,6 +89,7 @@
 												<i class="fa fa-times"></i>
 											</button>
 										</form>
+										
 										<button data-target="#delKategori{{$ba->id}}" data-toggle="modal" title="Delete" class="btn btn-link btn-danger" data-original-title="Remove" >
 												<i class="fa fa-times">withmodal</i>
 											</button>

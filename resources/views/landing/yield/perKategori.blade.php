@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item"><a href="{{asset('/')}}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><strong>{{$title}}</strong></li>
             </ol>
-        </nav>
+        </nav> 
     </div>
 
 <div class=" container mb-5 mt-5 ">

@@ -31,7 +31,6 @@
                         <form action="{{route('product.update', $product->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-
                             <div class="row">
                                 <div class="col-md-1"></div>
 
@@ -66,7 +65,7 @@
 											<select class="@error('kategori_id') is-invalid @enderror form-control input-fixed" name="kategori_id">
 												<option value="">--Pilih Kategori--</option>
 												@foreach($kategory as $kat)
-												<option value="{{$kat->id}}" @if ($kat->id == $product->kategori_id) selected="selected" @endif>{{$kat->nama_kategori}}</option>
+												<option value="{{$kat->id}}" @if ($kat->id == $product->kategori_id) selected="selected" @endif> {{$kat->nama_kategori}}</option>
 												@endforeach
 											</select>
 											@error('kategori_id')

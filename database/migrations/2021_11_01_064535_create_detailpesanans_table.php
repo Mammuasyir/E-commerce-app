@@ -18,7 +18,6 @@ class CreateDetailpesanansTable extends Migration
             $table->foreignId('product_id');
             $table->foreignId('pesanan_id');
             $table->integer('jumlah_pesanan');
-            
             $table->text('catatan');
             $table->timestamps();
         });

@@ -48,7 +48,7 @@ Route::put('/update-pass', [App\Http\Controllers\Auth\ChangePasswordController::
 Route::resource('/product', ProductController::class)->middleware('auth')->except('show');
 Route::get('/search', [ProductController::class, 'search'])->name('search'); 
 
-//kategori route 
+//kategori route
 Route::get('/kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('kategori.index')->middleware('auth');
 Route::post('/tambah-kategori', [App\Http\Controllers\KategoriController::class, 'addKategori'])->name('kategori.add')->middleware('auth');
 Route::put('/edit-kategori/{id}', [App\Http\Controllers\KategoriController::class, 'editKategori'])->name('kategory.edit')->middleware('auth');
@@ -60,4 +60,3 @@ Route::put('/edit-pending', [App\Http\Controllers\TransaksiController::class, 'e
 Route::get('/Transaksi-lunas', [App\Http\Controllers\TransaksiController::class, 'lunas'])->name('transaksi.lunas')->middleware('auth');
 Route::get('/Transaksi-terkirim', [App\Http\Controllers\TransaksiController::class, 'terkirim'])->name('transaksi.terkirim')->middleware('auth');
 Route::get('/Transaksi-search', [App\Http\Controllers\TransaksiController::class, 'searchPesanan'])->name('transaksi.search')->middleware('auth');
-

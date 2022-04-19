@@ -21,9 +21,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                @foreach($kategory as $kat)
-                                <a class="dropdown-item" href="{{route('landing.kategori', $kat->slug)}}">{{$kat->nama_kategori}}</a>
-                                @endforeach
+                                
                             </li>
 
                         </ul>

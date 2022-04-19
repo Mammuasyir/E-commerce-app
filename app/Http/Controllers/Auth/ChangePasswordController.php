@@ -32,14 +32,14 @@ class ChangePasswordController extends Controller
                 $user = User::find($user_id);
                 $user->password = Hash::make($request->input('password'));
                 $user->save();
-                return redirect()->back()->with('Success', 'Password Manthap Euy  !');
+                return redirect()->back()->with('Success', 'Password Berhasil diubah  !');
             }
         
 
             // return redirect()->back()->with('Success', 'Hore !');
 
         }else{
-            return redirect()->back()->with('Failed', 'Password Gaul !');
+            return redirect()->back()->with('Failed', 'Password Salah !');
         }
     }
 }

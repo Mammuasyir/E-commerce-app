@@ -19,9 +19,6 @@ public function __construct()
     FacadesView::share([
         'kategory' => $kategory,
     ]);
-
-    
-
 }
 
 }

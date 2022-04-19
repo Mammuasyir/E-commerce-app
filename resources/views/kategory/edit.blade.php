@@ -18,7 +18,7 @@
 			<form method="post" action="{{route('kategory.edit',$ba->id)}}" role="form">
 				@csrf
 				@method('PUT')
-				<div class="modal-body">
+				<div class="modal-body"> 
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group form-group-default">

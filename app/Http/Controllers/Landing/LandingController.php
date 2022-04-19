@@ -40,7 +40,7 @@ class LandingController extends Controller
         ]);
     }
 
-    public function perKategori($slug)
+    public function perKategori($slug) 
     {
         $nm_kt = kategory::where('slug', $slug)->first();
         $title = "Kategori $nm_kt->nama_kategori";
@@ -81,7 +81,7 @@ class LandingController extends Controller
         //cek apakah user punya pesanan utama
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
 
-        //save atau update pesanan utama
+        //save atau update pesanan utama 
         if (empty($pesanan)) {
             Pesanan::create([
                 'user_id'       => Auth::user()->id,
@@ -135,7 +135,6 @@ class LandingController extends Controller
 
     public function delcart($id)
     {
-
         $detail = Detailpesanan::findOrFail($id);
         $product = product::where('id', $detail->product_id)->first();
 

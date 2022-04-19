@@ -4,22 +4,22 @@
 
 @include('landing.include.carousel')
 
-<section class="container mt-4">
-    <h3><strong>Berdasarkan Kategori</strong></h3>
-    <div class="row mt-4">
-        @foreach($kategory as $kat)
-        <div class="col">
-            <a style="text-decoration:none; color: blueviolet;" href="{{route('landing.kategori', $kat->slug)}}">
-                <div class="card shadow">
-                    <div class="card-body text-center">
-                        {{$kat->nama_kategori}}
+    <section class="container mt-4">
+        <h3><strong>Berdasarkan Kategori</strong></h3>
+        <div class="row mt-4">
+            @foreach($kategory as $kat)
+            <div class="col">
+                <a style="text-decoration:none; color: blueviolet;" href="{{route('landing.kategori', $kat->slug)}}">
+                    <div class="card shadow">
+                        <div class="card-body text-center">
+                            {{$kat->nama_kategori}}
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-</section>
+    </section>
 
 <section class="container mt-5 mb-5">
     <h3 class="d-flex justify-content-between">
